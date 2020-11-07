@@ -31,7 +31,7 @@ export const query = graphql`
       titreBloc1
       texteBloc1
       titreBloc2
-      textBloc2
+      texteBloc2
       titreBloc3
       texteBloc3
     }
