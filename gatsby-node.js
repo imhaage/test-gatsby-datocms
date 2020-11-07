@@ -1,7 +1,15 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const marked = require("marked")
 
-// You can delete this file if you're not using it
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+  if (
+    node.internal.owner === "gatsby-source-datocms" &&
+    node.internal.content
+  ) {
+    createNodeField({
+      node,
+      name: `html`,
+      value: marked(node.internal.content),
+    })
+  }
+}
