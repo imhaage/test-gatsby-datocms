@@ -9,7 +9,7 @@ import "@fontsource/kaushan-script"
 
 const IndexPage = ({ data }) => {
   const { dato } = data
-  console.log(data)
+
   return (
     <Layout>
       <h1>{dato.titreDeLaPage}</h1>
