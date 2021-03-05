@@ -2,6 +2,10 @@ import React from "react"
 import { graphql } from "gatsby"
 import ReactMarkdown from "react-markdown"
 import Layout from "../components/layout"
+import "@fontsource/noto-serif"
+import "@fontsource/noto-serif/400-italic.css"
+import "@fontsource/noto-serif/700.css"
+import "@fontsource/kaushan-script"
 
 const IndexPage = ({ data }) => {
   const { dato } = data
