@@ -4,21 +4,30 @@ import ReactMarkdown from "react-markdown"
 import Layout from "../components/layout"
 
 const IndexPage = ({ data }) => {
-  const { datoCmsPage } = data
+  const { dato } = data
   console.log(data)
   return (
     <Layout>
-      <h1>{datoCmsPage.titreDeLaPage}</h1>
+      <h1>{dato.titreDeLaPage}</h1>
       <p>
-        <ReactMarkdown>{datoCmsPage.texteBloc1}</ReactMarkdown>
+        <ReactMarkdown>{dato.texteBloc1}</ReactMarkdown>
       </p>
-      <h2>{datoCmsPage.titreBloc2}</h2>
+      <h2>{dato.titreBloc2}</h2>
       <p>
-        <ReactMarkdown>{datoCmsPage.texteBloc2}</ReactMarkdown>
+        <ReactMarkdown>{dato.texteBloc2}</ReactMarkdown>
       </p>
-      <h2>{datoCmsPage.titreBloc3}</h2>
+      <h2>{dato.titreBloc3}</h2>
       <p>
-        <ReactMarkdown>{datoCmsPage.texteBloc3}</ReactMarkdown>
+        <ReactMarkdown>{dato.texteBloc3}</ReactMarkdown>
+      </p>
+      <p>
+        <h2>Tarifs</h2>
+        <ul>
+          <li>Prix 1 : {dato.prix1} €</li>
+          <li>Prix 2 : {dato.prix2} €</li>
+          <li>Prix 3 : {dato.prix3} €</li>
+          <li>Prix 4 : {dato.prix4} €</li>
+        </ul>
       </p>
     </Layout>
   )
@@ -26,7 +35,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query HomePageQuery {
-    datoCmsPage {
+    dato: datoCmsPage {
       titreDeLaPage
       titreBloc1
       texteBloc1
@@ -34,6 +43,10 @@ export const query = graphql`
       texteBloc2
       titreBloc3
       texteBloc3
+      prix1
+      prix2
+      prix3
+      prix4
     }
   }
 `
