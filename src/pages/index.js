@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import ReactMarkdown from "react-markdown"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
 import "@fontsource/noto-serif"
 import "@fontsource/noto-serif/400-italic.css"
@@ -8,7 +9,7 @@ import "@fontsource/noto-serif/700.css"
 import "@fontsource/kaushan-script"
 
 const IndexPage = ({ data }) => {
-  const { dato } = data
+  const { dato, gallery } = data
 
   return (
     <Layout>
@@ -33,6 +34,21 @@ const IndexPage = ({ data }) => {
           <li>Prix 4 : {dato.prix4} €</li>
         </ul>
       </p>
+
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
+      >
+        {gallery.photos.map(photo => (
+          <Img
+            style={{ width: "calc(33.33% - 0.25rem)", marginBottom: "0.5rem" }}
+            fluid={photo.fluid}
+          />
+        ))}
+      </div>
     </Layout>
   )
 }
@@ -51,6 +67,13 @@ export const query = graphql`
       prix2
       prix3
       prix4
+    }
+    gallery: datoCmsGalerie {
+      photos {
+        fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsFluid
+        }
+      }
     }
   }
 `
