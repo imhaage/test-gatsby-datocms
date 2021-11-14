@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <section>
-        <h1>{dato.titreDeLaPage}</h1>
+        <h1 style={{ fontSize: "2rem" }}>{dato.titreDeLaPage}</h1>
         <p>
           <ReactMarkdown>{dato.texteBloc1}</ReactMarkdown>
         </p>
@@ -79,7 +79,6 @@ export const query = graphql`
   query HomePageQuery {
     dato: datoCmsPage {
       titreDeLaPage
-      titreBloc1
       texteBloc1
       titreBloc2
       texteBloc2
